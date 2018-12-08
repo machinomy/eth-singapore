@@ -1,7 +1,8 @@
 import { BigNumber } from 'bignumber.js'
 import * as util from 'ethereumjs-util'
 import { Buffer } from 'safe-buffer'
-
+import * as Web3 from 'web3'
+const ethSigUtil = require('eth-sig-util')
 const numberToBN = require('number-to-bn')
 
 export type Uint256 = Buffer
@@ -57,4 +58,17 @@ export function printBufferArrayAs0xString (bufs: Buffer[]): void {
   bufs.map((el: Buffer) => {
     console.log(bufferTo0xString(el))
   })
+}
+
+export async function sign (web3: Web3, address: string, data: string | Buffer): Promise<string> {
+  if (data instanceof Buffer) {
+    data = data.toString('hex')
+  }
+  const result = web3.eth.sign(address, data)
+  return result
+}
+
+export function recover (signature: string, data: any): string {
+  const result = ethSigUtil.recoverPersonalSignature({ sig: signature, data: data })
+  return result
 }

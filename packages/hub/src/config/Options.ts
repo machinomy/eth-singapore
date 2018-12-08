@@ -7,6 +7,7 @@ interface Options {
   optionC: BigInt
   sslKeyPath: string
   sslCertPath: string
+  networkURL: string
 }
 
 // TODO Insert it into class
@@ -30,7 +31,8 @@ namespace Options {
       optionB: options.optionB,
       optionC: options.optionC,
       sslKeyPath: resolvedSSLKeyPath,
-      sslCertPath: resolvedSSLCertPath
+      sslCertPath: resolvedSSLCertPath,
+      networkURL: options.networkURL
     }
   }
 }
