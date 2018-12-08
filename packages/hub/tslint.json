@@ -1,0 +1,7 @@
+{
+  "extends": "tslint-config-standard-plus",
+  "rules": {
+    "no-any": false, // TODO Remove it in future
+    "no-commented-out-code": false
+  }
+}
