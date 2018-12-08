@@ -8,6 +8,7 @@ interface Options {
   sslKeyPath: string
   sslCertPath: string
   networkURL: string
+  botURL: string
 }
 
 // TODO Insert it into class
@@ -32,7 +33,8 @@ namespace Options {
       optionC: options.optionC,
       sslKeyPath: resolvedSSLKeyPath,
       sslCertPath: resolvedSSLCertPath,
-      networkURL: options.networkURL
+      networkURL: options.networkURL,
+      botURL: options.botURL
     }
   }
 }

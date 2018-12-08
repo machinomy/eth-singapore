@@ -5,7 +5,7 @@ import * as bodyParser from 'koa-bodyparser'
 import * as session from 'koa-session'
 import * as Router from 'koa-router'
 import Logger from '@machinomy/logger'
-import { accountExistHandler, getRequestHandler, recordAddHandler } from './handlers'
+import { accountExistHandler, getRequestHandler, recordAddHandler, paymentNewHandler } from './handlers'
 
 export class HttpsEndpoint {
   private readonly app: Koa
@@ -38,6 +38,7 @@ export class HttpsEndpoint {
 
   routesSetup () {
     this.router.post('/record/add', recordAddHandler)
+    this.router.post('/payment/new', paymentNewHandler)
     this.router.get('/accountExist/:account', accountExistHandler)
     this.router.get('/getRequest/:requestId', getRequestHandler)
   }
