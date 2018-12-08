@@ -34,10 +34,10 @@ export class Registry {
   @memoize
   async dbConnection () {
     return await createConnection({
-      type: "sqlite",
+      type: 'sqlite',
       synchronize: true,
-      database: "db.sqlite3",
-      entities: [Record]
+      database: 'db.sqlite3',
+      entities: [ Record ]
     })
   }
 

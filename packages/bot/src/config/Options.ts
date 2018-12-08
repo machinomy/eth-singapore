@@ -6,7 +6,11 @@ interface Options {
   optionB: number
   optionC: BigInt
   sslKeyPath: string
-  sslCertPath: string
+  sslCertPath: string,
+  twitterConsumerKey: string
+  twitterConsumerSecret: string
+  twitterAccessToken: string
+  twitterAccessTokenSecret: string
 }
 
 // TODO Insert it into class
@@ -30,7 +34,11 @@ namespace Options {
       optionB: options.optionB,
       optionC: options.optionC,
       sslKeyPath: resolvedSSLKeyPath,
-      sslCertPath: resolvedSSLCertPath
+      sslCertPath: resolvedSSLCertPath,
+      twitterConsumerKey: options.twitterConsumerKey,
+      twitterConsumerSecret: options.twitterConsumerSecret,
+      twitterAccessToken: options.twitterAccessToken,
+      twitterAccessTokenSecret: options.twitterAccessTokenSecret
     }
   }
 }

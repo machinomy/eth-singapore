@@ -1,0 +1,19 @@
+{
+  "name": "default",
+  "type": "sqlite",
+  "database": "db.sqlite3",
+  "autoSchemaSync": true,
+  "entities": [
+    "dist/entity/*.js"
+  ],
+  "migrations": [
+    "dist/migration/*.js"
+  ],
+  "logging": {
+    "logQueries": true
+  },
+  "cli": {
+    "entitiesDir": "src/entity",
+    "migrationsDir": "src/migration"
+  }
+}

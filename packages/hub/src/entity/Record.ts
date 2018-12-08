@@ -20,11 +20,11 @@ export class Record {
     this.signature = signature
   }
 
-  toJSON() {
+  toJSON () {
     return {
       account: this.address,
       address: this.address,
-      signature: this.signature,
+      signature: this.signature
     }
   }
 }

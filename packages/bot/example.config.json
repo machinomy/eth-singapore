@@ -1,0 +1,12 @@
+{
+  "optionA": "localhost",
+  "optionB": 1025,
+  "optionC": 100,
+  "sslKeyPath": "",
+  "sslCertPath": "support/ssl/cert.pem",,
+  "intervalToFetch": 5000,
+  "twitterConsumerKey": "",
+  "twitterConsumerSecret": "",
+  "twitterAccessToken": "",
+  "twitterAccessTokenSecret": ""
+}

@@ -14,7 +14,7 @@
     "test-ts": "jest",
     "test-rest": "ts-node test/rest/index.ts",
     "create-migration": "yarn typeorm migration:generate -n",
-    "migrate": "exit 0"
+    "migrate": "typeorm migration:run"
   },
   "dependencies": {
     "@machinomy/logger": "^0.2.3",
@@ -26,6 +26,7 @@
     "@types/newman": "^3.10.0",
     "@types/node": "^10.12.11",
     "@types/yargs": "^12.0.1",
+    "bignumber.js": "^8.0.1",
     "decko": "^1.2.0",
     "json-rpc-ws": "^7.0.0",
     "koa": "^2.6.1",
@@ -33,7 +34,9 @@
     "koa-router": "^7.4.0",
     "koa-session": "^5.10.0",
     "newman": "^4.2.2",
+    "node-tweet-stream": "^2.0.3",
     "ts-typed-events": "^1.1.1",
+    "twit": "^2.2.11",
     "typeorm": "^0.2.9",
     "yargs": "^12.0.5"
   },
