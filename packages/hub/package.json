@@ -26,12 +26,14 @@
     "support:wrap": "yarn truffle:compile && wraptso $npm_package_config_wrappedArtifacts --output ./src/wrappers",
     "support:build": "tsc --project support/tsconfig.json",
     "truffle:compile": "truffle compile",
-    "truffle:test": "run-with-testrpc 'truffle test $npm_package_config_truffleTests'"
+    "truffle:test": "run-with-testrpc 'truffle test $npm_package_config_truffleTests'",
+    "deployMainContract": "yarn build && DEBUG=* node dist/DeployMainContract"
   },
   "dependencies": {
     "@machinomy/hdwallet-provider": "^1.1.0",
     "@machinomy/logger": "^0.2.3",
     "@machinomy/types-web3": "^0.0.4",
+    "@types/fs-extra": "^5.0.4",
     "@types/json-rpc-ws": "^4.0.2",
     "@types/koa": "^2.0.46",
     "@types/koa-bodyparser": "^5.0.1",
@@ -41,10 +43,12 @@
     "@types/node": "^10.12.11",
     "@types/yargs": "^12.0.1",
     "bignumber.js": "4.1.0",
+    "console.table": "^0.10.0",
     "decko": "^1.2.0",
     "eth-sig-util": "^2.1.0",
     "ethereumjs-units": "^0.2.0",
     "ethereumjs-util": "^5.2.0",
+    "fs-extra": "^7.0.1",
     "json-rpc-ws": "^7.0.0",
     "koa": "^2.6.1",
     "koa-bodyparser": "^4.2.1",
