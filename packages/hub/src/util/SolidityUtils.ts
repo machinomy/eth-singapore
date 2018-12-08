@@ -2,6 +2,7 @@ import { BigNumber } from 'bignumber.js'
 import * as util from 'ethereumjs-util'
 import { Buffer } from 'safe-buffer'
 import * as Web3 from 'web3'
+import { pify } from '../util/pify'
 const ethSigUtil = require('eth-sig-util')
 const numberToBN = require('number-to-bn')
 
@@ -61,10 +62,12 @@ export function printBufferArrayAs0xString (bufs: Buffer[]): void {
 }
 
 export async function sign (web3: Web3, address: string, data: string | Buffer): Promise<string> {
-  if (data instanceof Buffer) {
-    data = data.toString('hex')
-  }
-  const result = web3.eth.sign(address, data)
+  const result = await pify<string>((cb: (error: Error, signedData: string) => void) => {
+    if (data instanceof Buffer) {
+      data = data.toString('hex')
+    }
+    web3.eth.sign(address, data, cb)
+  })
   return result
 }
 

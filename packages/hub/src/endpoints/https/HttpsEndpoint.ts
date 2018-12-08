@@ -5,6 +5,7 @@ import * as bodyParser from 'koa-bodyparser'
 import * as session from 'koa-session'
 import * as Router from 'koa-router'
 import Logger from '@machinomy/logger'
+import { Registry } from '../../Registry'
 import { getRequestHandler, recordAddHandler } from './handlers'
 
 export class HttpsEndpoint {
@@ -14,8 +15,9 @@ export class HttpsEndpoint {
 
   private server: https.Server
   private readonly router: Router
+  private registry: Registry
 
-  constructor (port: number, sslKeyPath: string, sslCertPath: string) {
+  constructor (registry: Registry, port: number, sslKeyPath: string, sslCertPath: string) {
     this.log = new Logger('httpsEndpoint')
     this.app = new Koa()
     this.app.use(session({
@@ -29,11 +31,12 @@ export class HttpsEndpoint {
     this.port = port
 
     const options = {
-      key: fs.readFileSync('../../../support/ssl/privkey.pem', 'utf8'),
-      cert: fs.readFileSync('../../../support/ssl/cert.pem', 'utf8')
+      key: fs.readFileSync('support/ssl/privkey.pem', 'utf8'),
+      cert: fs.readFileSync('support/ssl/cert.pem', 'utf8')
     }
 
     this.server = https.createServer(options, this.app.callback())
+    this.registry = registry
   }
 
   routesSetup () {

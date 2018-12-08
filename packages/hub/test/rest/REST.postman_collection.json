@@ -38,6 +38,37 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Record add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"account\": \"113433944552306511640\",\n\t\"address\": \"0xdfad260056bbffc6f899a7209c25c5c66446f8cd\",\n\t\"signature\": \"0x8f35d7805ddd6efa5f2281ad3f84e1ccdfb61076c134b0f94b3c30aa812cce5c76803bb8b650dd5b0bb8fc21b41a2178ac20e0dacebb71fe2d5c430a8e96cda61b\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:1025/record/add",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "1025",
+					"path": [
+						"record",
+						"add"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

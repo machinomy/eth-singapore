@@ -1,6 +1,7 @@
 import Logger from '@machinomy/logger'
 import Options from './config/Options'
 import { Registry } from './Registry'
+import * as solUtils from './util/SolidityUtils'
 
 export class Main {
   registry: Registry

@@ -4,5 +4,5 @@
   "optionC": 100,
   "sslKeyPath": "",
   "sslCertPath": "support/ssl/cert.pem",
-  "networkURL": "https://rinkeby.infura.io"
+  "networkURL": "https://rinkeby.infura.io/"
 }

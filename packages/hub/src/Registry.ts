@@ -4,6 +4,9 @@ import { memoize } from 'decko'
 import { HttpEndpoint } from './endpoints/http/HttpEndpoint'
 import { HttpsEndpoint } from './endpoints/https/HttpsEndpoint'
 import * as Web3 from 'web3'
+import { Record } from './entity/Record'
+import { createConnection, Connection } from 'typeorm'
+import HDWalletProvider from '@machinomy/hdwallet-provider'
 
 export class Registry {
   options: Options
@@ -29,8 +32,19 @@ export class Registry {
   }
 
   @memoize
+  async dbConnection () {
+    return await createConnection({
+      type: "sqlite",
+      synchronize: true,
+      database: "db.sqlite3",
+      entities: [Record]
+    })
+  }
+
+  @memoize
   web3 (): Web3 {
     const network = this.options.networkURL
+    // const provider = HDWalletProvider.http(MNEMONIC, this.options.networkURL)
     return new Web3(new Web3.providers.HttpProvider(network))
   }
 

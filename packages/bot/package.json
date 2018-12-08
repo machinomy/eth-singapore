@@ -10,7 +10,7 @@
     "build": "rm -rf dist/ && tsc --project tsconfig.json",
     "start": "DEBUG=* yarn build && node-dev dist/src/bin/main.js --config=config.json",
     "start-dev": "DEBUG=* ts-node-dev src/bin/main.ts --config=config.json",
-    "test": "test-ts && test-rest",
+    "test": "yarn test-ts && yarn test-rest",
     "test-ts": "jest",
     "test-rest": "ts-node test/rest/index.ts",
     "create-migration": "yarn typeorm migration:generate -n",

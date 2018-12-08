@@ -7,13 +7,13 @@
     "dist/entity/*.js"
   ],
   "migrations": [
-    "dist/src/migrations/*.js"
+    "dist/migration/*.js"
   ],
   "logging": {
     "logQueries": true
   },
   "cli": {
     "entitiesDir": "src/entity",
-    "migrationsDir": "src/migrations"
+    "migrationsDir": "src/migration"
   }
 }

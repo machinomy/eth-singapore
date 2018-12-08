@@ -10,6 +10,7 @@
     "sourceMap": true,
     "declaration": true,
     "strict": true,
+    "strictPropertyInitialization": false,
     "noImplicitReturns": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
