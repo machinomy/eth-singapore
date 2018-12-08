@@ -5,6 +5,7 @@ import Options from './config/Options'
 import { BotRecord } from './entity/BotRecord'
 import { Registry } from './Registry'
 import axios from 'axios'
+import EventEmitter = NodeJS.EventEmitter
 
 export class Main {
   registry: Registry
@@ -74,7 +75,17 @@ export class Main {
     const botNameToTrack = this.registry.botNameToTrack()
     twitterStream.track(botNameToTrack)
 
+    const ee = new EventEmitter()
 
+    ee.on('statusUpdated', async (requestID: string, newStatus: string) => {
+      if (newStatus === 'paid') {
+        const connection = await DBManager.instance().dbConnection()
+        await connection.createQueryBuilder()
+          .update(BotRecord)
+          .set({ status: newStatus })
+          .where("id = :id", { id: requestID })
+      }
+    })
 
     // twit.post('statuses/update', { status: 'Take off!' }, (err, data, response) => {
     //   console.log(data)

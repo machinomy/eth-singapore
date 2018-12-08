@@ -20,4 +20,9 @@ export class ChainManager {
     const result = await MainContract.contract(web3.currentProvider).deployed()
     return result
   }
+
+  async address () {
+    const contract = await this.mainContract()
+    console.log(`contract.address = ${contract.address}`)
+  }
 }

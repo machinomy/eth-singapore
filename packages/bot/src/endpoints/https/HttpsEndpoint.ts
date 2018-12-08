@@ -6,6 +6,7 @@ import * as session from 'koa-session'
 import * as Router from 'koa-router'
 import Logger from '@machinomy/logger'
 import { getRequestHandler } from './handlers'
+import { statusUpdateHandler } from './handlers/statusUpdateHandler'
 
 export class HttpsEndpoint {
   private readonly app: Koa
@@ -37,7 +38,7 @@ export class HttpsEndpoint {
   }
 
   routesSetup () {
-    // this.router.post('/record/add', recordAddHandler)
+    this.router.post('/status/update', statusUpdateHandler)
     this.router.get('/getRequest/:requestId', getRequestHandler)
   }
 

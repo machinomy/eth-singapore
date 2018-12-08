@@ -10,14 +10,14 @@ contract Main {
 
   event transferSuccessful(uint256 operationId, bytes fromAccount, address fromAddress, address toAddress, uint256 amount, uint256 fromBalance, uint256 toBalance);
 
-  function check (bytes userAccount, address userAddress, bytes userSignature) public {
+  function check (bytes userAccount, address userAddress, bytes userSignature) private {
       bytes32 hash = keccak256(abi.encodePacked(userAccount, userAddress));
       address recoveredAddress = ECRecovery.recover(ECRecovery.toEthSignedMessageHash(hash), userSignature);
       require(data[userAddress] != 0, "check: Record not found!");
       require(userAddress == recoveredAddress, "check: Record is not correct!");
   }
 
-  function addFund (address who, uint256 howMuch) public {
+  function addFund (address who, uint256 howMuch) private {
       data[who] += howMuch;
   }
 
