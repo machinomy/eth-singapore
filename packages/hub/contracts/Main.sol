@@ -9,17 +9,17 @@ contract Main {
   mapping (address => uint256) public data;
 
   function check (bytes userAccount, address userAddress, bytes userSignature) public {
-    bytes32 hash = keccak256(abi.encodePacked(userAccount, userAddress));
-    address recoveredAddress = ECRecovery.recover(ECRecovery.toEthSignedMessageHash(hash), userSignature);
-    require(data[userAddress] != 0, "check: Record not found!");
-    require(userAddress == recoveredAddress, "check: Record is not correct!");
+      bytes32 hash = keccak256(abi.encodePacked(userAccount, userAddress));
+      address recoveredAddress = ECRecovery.recover(ECRecovery.toEthSignedMessageHash(hash), userSignature);
+      require(data[userAddress] != 0, "check: Record not found!");
+      require(userAddress == recoveredAddress, "check: Record is not correct!");
   }
 
   function addFund (address who, uint256 howMuch) public {
-    data[who] += howMuch;
+      data[who] += howMuch;
   }
 
   function () payable public {
-    addFund(msg.sender, msg.value);
+      addFund(msg.sender, msg.value);
   }
 }
