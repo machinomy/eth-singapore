@@ -22,6 +22,7 @@ export class Record {
 
   toJSON () {
     return {
+      id: this.id,
       account: this.address,
       address: this.address,
       signature: this.signature

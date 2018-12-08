@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@machinomy/logger": "^0.2.3",
+    "@types/axios": "^0.14.0",
     "@types/json-rpc-ws": "^4.0.2",
     "@types/koa": "^2.0.46",
     "@types/koa-bodyparser": "^5.0.1",
@@ -25,7 +26,9 @@
     "@types/koa-session": "^5.7.4",
     "@types/newman": "^3.10.0",
     "@types/node": "^10.12.11",
+    "@types/twit": "^2.2.20",
     "@types/yargs": "^12.0.1",
+    "axios": "^0.18.0",
     "bignumber.js": "^8.0.1",
     "decko": "^1.2.0",
     "json-rpc-ws": "^7.0.0",

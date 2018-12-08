@@ -11,6 +11,8 @@ interface Options {
   twitterConsumerSecret: string
   twitterAccessToken: string
   twitterAccessTokenSecret: string
+  botNameToTrack: string
+  hubURL: string
 }
 
 // TODO Insert it into class
@@ -38,7 +40,9 @@ namespace Options {
       twitterConsumerKey: options.twitterConsumerKey,
       twitterConsumerSecret: options.twitterConsumerSecret,
       twitterAccessToken: options.twitterAccessToken,
-      twitterAccessTokenSecret: options.twitterAccessTokenSecret
+      twitterAccessTokenSecret: options.twitterAccessTokenSecret,
+      botNameToTrack: options.botNameToTrack,
+      hubURL: options.hubURL
     }
   }
 }
