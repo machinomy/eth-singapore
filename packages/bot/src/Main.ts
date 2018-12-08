@@ -29,8 +29,8 @@ export class Main {
       const amount: string = new BigNumber(0.01).toString()
       const hubURL = this.registry.hubURL()
 
-      const sourceAccountExistsResponse = await axios.get(`${hubURL}/account/exist?account=${sourceAccount}`)
-      const destinationAccountExistsResponse = await axios.get(`${hubURL}/account/exist?account=${destinationAccount}`)
+      const sourceAccountExistsResponse = await axios.get(`${hubURL}/account/exist/${sourceAccount}`)
+      const destinationAccountExistsResponse = await axios.get(`${hubURL}/account/exist/${destinationAccount}`)
 
       if (sourceAccountExistsResponse.status !== 200) {
         this.log.error(`Source account ${sourceAccount} does not exists in Hub`)
