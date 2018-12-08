@@ -30,6 +30,7 @@ contract Main {
     require(data[fromAddress] - amount > 0, "transfer: User From has no enough fund. Please, refill wallet.");
     data[fromAddress] -= amount;
     data[toAddress] += amount;
+    toAddress.transfer(amount);
 
     emit transferSuccessful(operationId, fromAccount, fromAddress, toAddress, amount, data[fromAddress], data[toAddress]);
   }
