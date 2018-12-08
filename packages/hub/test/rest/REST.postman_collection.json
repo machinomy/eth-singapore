@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "32697a55-4078-e4f9-c040-6c0e40cbf0a5",
+		"name": "REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/getRequest/123",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"warning": "",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"value\": \"1.5\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:1025/getRequest/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1025",
+					"path": [
+						"getRequest",
+						"123"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
