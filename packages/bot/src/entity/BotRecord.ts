@@ -12,8 +12,13 @@ export class BotRecord {
   sourceAccount: string
 
   @Column()
+  sourceAccountID: string
+
+  @Column()
   destinationAccount: string
 
+  @Column()
+  destinationAccountID: string
   // @Column()
   // sourceAddress: string
   //
@@ -26,10 +31,12 @@ export class BotRecord {
   @Column()
   status: string
 
-  constructor (tweetId: string, sourceAccount: string, destinationAccount: string, amount: string, status: string) {
+  constructor (tweetId: string, sourceAccount: string, destinationAccount: string, sourceAccountID: string, destinationAccountID: string, amount: string, status: string) {
     this.tweetId = tweetId
     this.sourceAccount = sourceAccount
     this.destinationAccount = destinationAccount
+    this.sourceAccountID = sourceAccountID
+    this.destinationAccountID = destinationAccountID
     // this.sourceAddress = sourceAddress
     // this.destinationAddress = destinationAddress
     this.amount = amount
@@ -42,6 +49,8 @@ export class BotRecord {
       tweetId: this.tweetId,
       sourceAccount: this.sourceAccount,
       destinationAccount: this.destinationAccount,
+      sourceAccountID: this.sourceAccountID,
+      destinationAccountID: this.destinationAccountID,
       // sourceAddress: this.sourceAddress,
       // destinationAddress: this.destinationAddress,
       amount: this.amount,

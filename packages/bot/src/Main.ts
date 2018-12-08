@@ -27,6 +27,8 @@ export class Main {
       const tweetId = '1071455689049022500'
       const sourceAccount = 'zx10020'
       const destinationAccount = 'anti_zx10020'
+      const sourceAccountID = '1065627301189169152'
+      const destinationAccountID = '1071447161949339649'
       const amount: string = new BigNumber(0.01).toString()
       const hubURL = this.registry.hubURL()
 
@@ -43,7 +45,7 @@ export class Main {
 
       try {
         const connection = await DBManager.instance().dbConnection()
-        const botRecord = new BotRecord(tweetId, sourceAccount, destinationAccount, amount, 'pending')
+        const botRecord = new BotRecord(tweetId, sourceAccount, destinationAccount, sourceAccountID, destinationAccountID, amount, 'pending')
 
         const orders = await connection.getRepository(BotRecord).createQueryBuilder('bot_record')
           .where('bot_record.tweetId = :tweetId', {tweetId: botRecord.tweetId}).getMany()
@@ -85,6 +87,15 @@ export class Main {
           .set({ status: newStatus })
           .where("id = :id", { id: requestID })
       }
+      const connection = await DBManager.instance().dbConnection()
+
+      const payment = await connection.getRepository<BotRecord>(BotRecord).createQueryBuilder('bot_record')
+        .where('bot_record.id = :id', { id: requestID }).getOne()
+
+      if (payment) {
+        this.twitterPostDirect(payment.sourceAccountID, `Successfully send ${payment.amount}ETH to @${payment.destinationAccount}. Your balance now is `)
+        this.twitterPostDirect(payment.destinationAccountID, `User @${payment.sourceAccount} sent you ${payment.amount}ETH. Your balance now is  `)
+      }
     })
 
     // twit.post('statuses/update', { status: 'Take off!' }, (err, data, response) => {
@@ -113,4 +124,30 @@ export class Main {
     //   console.log('\n\n' + JSON.stringify(data))
     // })
   }
+
+  twitterPostDirect (id_str: string, text2msg: string) {
+    const twit = this.registry.twit()
+
+    twit.post( "direct_messages/events/new", {
+      event:
+      {
+        type: "message_create",
+        message_create:
+        {
+          target:
+          {
+            recipient_id: id_str
+          },
+          message_data:
+          {
+            text: text2msg
+          }
+        }
+      }
+    } as any, (err: any, data: any, response: any) => {
+      console.log('\n\n' + JSON.stringify(response))
+      console.log('\n\n' + JSON.stringify(data))
+    })
+  }
+
 }
