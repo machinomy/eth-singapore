@@ -19,8 +19,18 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "include": [
-      "./src/**/*"
+    "types": [
+      "@machinomy/types-ethereumjs-units",
+      "@machinomy/types-ethereumjs-util",
+      "@machinomy/types-web3",
+      "@machinomy/types-truffle",
+      "@machinomy/types-truffle-contract",
+      "@machinomy/types-truffle-deployer",
+      "@types/node",
+      "@types/jest"
     ]
-  }
+  },
+  "include": [
+    "./src/**/*"
+  ]
 }
