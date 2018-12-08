@@ -3,5 +3,6 @@
   "optionB": 1025,
   "optionC": 100,
   "sslKeyPath": "",
-  "sslCertPath": "support/ssl/cert.pem"
+  "sslCertPath": "support/ssl/cert.pem",
+  "networkURL": "https://rinkeby.infura.io"
 }
