@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+  <!-- Vynos -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@0.20.1/dist/web3.min.js"></script>
+  <script src="https://vynos.tech/v0.1.15/vynos.js"></script>
+  <script src="/main.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h1>
+        <a href="/">ETHSingapore Machinomy Social Payments</a>
+      </h1>
+
+      <div>
+        <h3>Step 1. Connect account to social wallet</h3>
+        <!--<form id="connect_form">-->
+          <p>Twitter account (without @): <input type="text" id="account" placeholder="some_user" /></p>
+          <p>Rinkeby address: <input type="text" id="address" placeholder="0xf4222acef04d86f7304b8364734f22c00108d0cd"/></p>
+          <p><button id="connect_button">Connect!</button></p>
+        <!--</form>-->
+      </div>
+      <hr/>
+      <div>
+        <h3>Step 2. Refill your social wallet</h3>
+        <p>Refill your account via sending any amount of ETH <br/>
+          to 0xf1c534d1f44b78bd8ae7323b6722a1c65c96dde1 (RINKEBY).
+          You can use Vynos ➡️<br/> for that (dont forget to change network in Vynos via Networks tab).</p>
+      </div>
+      <hr/>
+      <div>
+        <h3>Step 3. Mention our bot in twitter (@ukstv)</h3>
+        <p>For sending 0.001ETH to user @user, please <br/>
+          post a tweet "@ukstv Send 0.001ETH to @user" and wait about 1 minute.</p>
+      </div>
+      <hr/>
+      <div>
+        <h3>Step 4. See your transaction on Etherscan</h3>
+        <p><a href="https://rinkeby.etherscan.io/address/0xf1c534d1f44b78bd8ae7323b6722a1c65c96dde1">https://rinkeby.etherscan.io/address/0xf1c534d1f44b78bd8ae7323b6722a1c65c96dde1</a><br/>
+          also if both users follow the bot you'll receive direct private message about transaction and current balance.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
