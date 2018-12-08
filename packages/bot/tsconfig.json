@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "sourceRoot": "src/",
+    "outDir": "dist/",
+    "target": "es2017",
+    "module": "commonjs",
+    "lib": ["esnext", "dom"],
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "emitDecoratorMetadata": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "include": [
+      "./src/**/*"
+    ]
+  }
+}

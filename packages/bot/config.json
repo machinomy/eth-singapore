@@ -1,0 +1,7 @@
+{
+  "optionA": "localhost",
+  "optionB": 1025,
+  "optionC": 100,
+  "sslKeyPath": "",
+  "sslCertPath": "support/ssl/cert.pem"
+}

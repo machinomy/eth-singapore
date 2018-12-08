@@ -1,0 +1,53 @@
+{
+  "name": "@eth-singapore/bot",
+  "version": "0.0.1",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "prepublish": "yarn lint && yarn build",
+    "lint": "tslint --format stylish --project . --exclude 'node_modules/**/*.ts'",
+    "coverage": "yarn build && jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "build": "rm -rf dist/ && tsc --project tsconfig.json",
+    "start": "DEBUG=* yarn build && node-dev dist/src/bin/main.js --config=config.json",
+    "start-dev": "DEBUG=* ts-node-dev src/bin/main.ts --config=config.json",
+    "test": "test-ts && test-rest",
+    "test-ts": "jest",
+    "test-rest": "ts-node test/rest/index.ts",
+    "create-migration": "yarn typeorm migration:generate -n",
+    "migrate": "exit 0"
+  },
+  "dependencies": {
+    "@machinomy/logger": "^0.2.3",
+    "@types/json-rpc-ws": "^4.0.2",
+    "@types/koa": "^2.0.46",
+    "@types/koa-bodyparser": "^5.0.1",
+    "@types/koa-router": "^7.0.33",
+    "@types/koa-session": "^5.7.4",
+    "@types/newman": "^3.10.0",
+    "@types/node": "^10.12.11",
+    "@types/yargs": "^12.0.1",
+    "decko": "^1.2.0",
+    "json-rpc-ws": "^7.0.0",
+    "koa": "^2.6.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.10.0",
+    "newman": "^4.2.2",
+    "ts-typed-events": "^1.1.1",
+    "typeorm": "^0.2.9",
+    "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "coveralls": "^3.0.2",
+    "istanbul": "^0.4.5",
+    "jest": "^23.6.0",
+    "node-dev": "^3.1.3",
+    "nyc": "^13.1.0",
+    "tslint": "^5.11.0",
+    "tslint-config-standard-plus": "^2.1.1",
+    "ts-jest": "23.10.5",
+    "ts-node-dev": "^1.0.0-pre.30",
+    "typescript": "^3.3.0-dev.20181201"
+  }
+}
