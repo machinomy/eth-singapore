@@ -44,8 +44,8 @@ export class Main {
         const connection = await DBManager.instance().dbConnection()
         const botRecord = new BotRecord(tweetId, sourceAccount, destinationAccount, amount, 'pending')
 
-        const orders = await connection.getRepository(BotRecord).createQueryBuilder('botRecord')
-          .where('botRecord.tweetId = :tweetId', {tweetId: botRecord.tweetId}).getMany()
+        const orders = await connection.getRepository(BotRecord).createQueryBuilder('bot_record')
+          .where('bot_record.tweetId = :tweetId', {tweetId: botRecord.tweetId}).getMany()
         if (orders.length !== 0) {
           this.log.error(`Tweet with tweetId ${botRecord.tweetId} already processed`)
         } else {
