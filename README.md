@@ -9,7 +9,8 @@ Machinomy Social Payments (ETHSingapore 2018)
 
 Available sub-projects:
 - [Hub](packages/hub) TODO
-- [TwitterBot](packages/twitterBot) TODO.
+- [HubFrontend](packages/hubFrontend) TODO
+- [Bot](packages/bot) TODO.
 
 ## Installation
 
