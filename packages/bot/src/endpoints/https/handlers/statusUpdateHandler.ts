@@ -1,5 +1,5 @@
 import * as Router from 'koa-router'
-import EventEmitter = NodeJS.EventEmitter
+import { EventEmitter } from 'events'
 
 export async function statusUpdateHandler (ctx: Router.IRouterContext) {
   const body = ctx.request.body as any

@@ -5,7 +5,7 @@ import Options from './config/Options'
 import { BotRecord } from './entity/BotRecord'
 import { Registry } from './Registry'
 import axios from 'axios'
-import EventEmitter = NodeJS.EventEmitter
+import { EventEmitter } from 'events'
 
 export class Main {
   registry: Registry
