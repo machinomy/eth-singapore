@@ -3,10 +3,12 @@
   "optionB": 1025,
   "optionC": 100,
   "sslKeyPath": "",
-  "sslCertPath": "support/ssl/cert.pem",,
+  "sslCertPath": "support/ssl/cert.pem",
   "intervalToFetch": 5000,
+  "botNameToTrack": "bot",
   "twitterConsumerKey": "",
   "twitterConsumerSecret": "",
   "twitterAccessToken": "",
-  "twitterAccessTokenSecret": ""
+  "twitterAccessTokenSecret": "",
+  "hubURL": "https://localhost:1025"
 }

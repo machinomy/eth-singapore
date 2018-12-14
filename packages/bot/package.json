@@ -5,16 +5,16 @@
   "license": "UNLICENSED",
   "scripts": {
     "prepublish": "yarn lint && yarn build",
-    "lint": "tslint --format stylish --project . --exclude 'node_modules/**/*.ts'",
+    "lint": "yarn tslint --format stylish --project . --exclude 'node_modules/**/*.ts'",
     "coverage": "yarn build && jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "rm -rf dist/ && tsc --project tsconfig.json",
     "start": "DEBUG=* yarn build && node-dev dist/src/bin/main.js --config=config.json",
     "start-dev": "DEBUG=* ts-node-dev src/bin/main.ts --config=config.json",
     "test": "yarn test-ts && yarn test-rest",
-    "test-ts": "jest",
-    "test-rest": "ts-node test/rest/index.ts",
+    "test-ts": "yarn jest",
+    "test-rest": "yarn ts-node-dev test/rest/index.ts",
     "create-migration": "yarn typeorm migration:generate -n",
-    "migrate": "typeorm migration:run"
+    "migrate": "yarn typeorm migration:run"
   },
   "dependencies": {
     "@machinomy/logger": "^0.2.3",
